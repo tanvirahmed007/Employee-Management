@@ -1,0 +1,43 @@
+/* src/app/pages/login/login.component.css */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom checkbox */
+input[type="checkbox"] {
+  accent-color: #2563eb;
+}
+
+/* Focus styles */
+input:focus-visible {
+  outline: none;
+}
+
+/* Selection color */
+::selection {
+  background: #93c5fd;
+  color: #1e3a8a;
+}
+
+/* Backdrop blur */
+.backdrop-blur-xl {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}

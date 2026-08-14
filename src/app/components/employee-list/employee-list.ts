@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Employee } from '../../models/employee';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';  // ← Add this import
+import { AuthService } from '../../services/auth.services';
+
 
 
 @Component({
@@ -32,6 +35,25 @@ export class EmployeeList {
     message: '',
     type: 'success'
   };
+
+  constructor(
+    private router: Router,
+    private authService: AuthService
+    ) {
+    // Check if user is logged in
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  logout(): void {
+    this.authService.logout();
+  }
+
+  // Add get user method
+  getCurrentUser(): string {
+    return this.authService.getUserName();
+  }
 
   employees: Employee[] = [
     {
